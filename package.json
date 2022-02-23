@@ -51,8 +51,7 @@
   "lint-staged": {
     "src/**/*.{html,ts,js,jsx,json,css,scss}": [
       "npm run lint",
-      "npm run format",
-      "git add"
+      "npm run format"
     ]
   }
 }

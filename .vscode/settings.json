@@ -1,0 +1,9 @@
+{
+  "alias-resolver.file": "src/components/App.jsx",
+  "alias-resolver.type": "webpack",
+  "jumpToAliasFile.alias": {
+    "@components": "/home/victorraul/personalProjects/React/react-hooks/project-conf-merch/src/components",
+    "@styles": "/home/victorraul/personalProjects/React/react-hooks/project-conf-merch/src/styles",
+    "@hooks": "/home/victorraul/personalProjects/React/react-hooks/project-conf-merch/src/hooks"
+  }
+}

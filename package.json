@@ -49,10 +49,10 @@
       "pre-commit":"lint-staged"
     }
   },
-  "lint-staged":{
-    "*.{js,jsx,css,md,html}":[
+  "lint-staged": {
+    "src/**/*.{html,ts,js,jsx,json,css,scss}": [
+      "eslint --cache --fix",
       "prettier --write",
-      "eslint src/ --fix",
       "git add"
     ]
   }

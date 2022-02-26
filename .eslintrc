@@ -1,5 +1,6 @@
 {
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
     "airbnb",
     "prettier",
@@ -26,7 +27,7 @@
     "error",
     "absolute-first"
     ],
-    "import/newline-after-import": "error",
+    "import/newline-after-import": "error"
   },
   "globals": {
     "window": true,
@@ -47,6 +48,5 @@
         "config": "webpack.config.js"
       }
     }
-  },
-  "ignorePatterns": ["src/**/*.css"]
+  }
 }

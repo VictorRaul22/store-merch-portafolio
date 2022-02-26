@@ -65,7 +65,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
-    new Dotenv()
+    new Dotenv(),
   ],
   devServer: {
     historyApiFallback: true,

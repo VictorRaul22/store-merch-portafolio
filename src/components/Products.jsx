@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import Product from '@components/Product';
-import '@styles/components/Products.css';
-import Appcontext from '../context/AppContext';
+import React, { useContext } from "react";
+import Product from "@components/Product";
+import "@styles/components/Products.css";
+import Appcontext from "../context/AppContext";
 
 function Products() {
   const { state, addToCart } = useContext(Appcontext);

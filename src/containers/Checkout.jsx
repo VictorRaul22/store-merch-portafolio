@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import '@styles/components/Checkout.css';
-import { Link } from 'react-router-dom';
-import AppContext from '@context/AppContext';
+import React, { useContext } from "react";
+import "@styles/components/Checkout.css";
+import { Link } from "react-router-dom";
+import AppContext from "@context/AppContext";
 
 function Checkout() {
   const { state, removeFromCart } = useContext(AppContext);

@@ -1,7 +1,7 @@
-import React, { useRef, useContext } from 'react';
-import '@styles/components/Information.css';
-import { Link, useNavigate } from 'react-router-dom';
-import AppContext from '@context/AppContext';
+import React, { useRef, useContext } from "react";
+import "@styles/components/Information.css";
+import { Link, useNavigate } from "react-router-dom";
+import AppContext from "@context/AppContext";
 
 function Information() {
   const { state, addtoBuyer } = useContext(AppContext);
@@ -11,18 +11,18 @@ function Information() {
   const handleSubmit = () => {
     const formData = new FormData(form.current);
     const buyer = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      address: formData.get('addres'),
-      apto: formData.get('apto'),
-      city: formData.get('city'),
-      country: formData.get('country'),
-      state: formData.get('state'),
-      cp: formData.get('cp'),
-      phone: formData.get('phone'),
+      name: formData.get("name"),
+      email: formData.get("email"),
+      address: formData.get("addres"),
+      apto: formData.get("apto"),
+      city: formData.get("city"),
+      country: formData.get("country"),
+      state: formData.get("state"),
+      cp: formData.get("cp"),
+      phone: formData.get("phone"),
     };
     addtoBuyer(buyer);
-    navigate('/checkout/payment');
+    navigate("/checkout/payment");
   };
   return (
     <div className="Information">

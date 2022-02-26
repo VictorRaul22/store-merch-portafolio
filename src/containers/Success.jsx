@@ -1,5 +1,5 @@
-import React from 'react';
-import '@styles/components/Success.css';
+import React from "react";
+import "@styles/components/Success.css";
 
 function Success() {
   return (

@@ -1,25 +1,25 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  entry: './src/index.js',
-  mode: 'development',
+  entry: "./src/index.js",
+  mode: "development",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'js/bundle.js',
-    publicPath: '/',
+    path: path.resolve(__dirname, "dist"),
+    filename: "js/bundle.js",
+    publicPath: "/",
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
     alias: {
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@containers': path.resolve(__dirname, 'src/containers'),
-      '@context': path.resolve(__dirname, 'src/context'),
-      '@routes': path.resolve(__dirname, 'src/routes'),
-      '@styles': path.resolve(__dirname, 'src/styles'),
-      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@containers": path.resolve(__dirname, "src/containers"),
+      "@context": path.resolve(__dirname, "src/context"),
+      "@routes": path.resolve(__dirname, "src/routes"),
+      "@styles": path.resolve(__dirname, "src/styles"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
   module: {
@@ -29,7 +29,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
       // html
@@ -37,7 +37,7 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader',
+            loader: "html-loader",
           },
         ],
       },
@@ -47,30 +47,30 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          'css-loader',
+          "css-loader",
         ],
         exclude: /node_modules/,
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        type: 'asset',
+        type: "asset",
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
+      template: "./public/index.html",
+      filename: "./index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: "css/[name].css",
     }),
     new Dotenv(),
   ],
   devServer: {
     historyApiFallback: true,
     static: {
-      directory: path.join(__dirname, 'public'),
+      directory: path.join(__dirname, "public"),
     },
     compress: true,
     port: 3000,

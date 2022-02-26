@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import '@styles/components/Payment.css';
-import { PayPalButton } from 'react-paypal-button-v2';
-import AppContext from '@context/AppContext';
-import { useNavigate } from 'react-router-dom';
-import pass from '../pass';
+import React, { useContext } from "react";
+import "@styles/components/Payment.css";
+import { PayPalButton } from "react-paypal-button-v2";
+import AppContext from "@context/AppContext";
+import { useNavigate } from "react-router-dom";
+import pass from "../pass";
 
 function Payment() {
   const { state, addNewOrder } = useContext(AppContext);
@@ -11,25 +11,25 @@ function Payment() {
   const navigate = useNavigate();
   const paypalOptions = {
     clientId: pass.paypalPaymentClientID,
-    intent: 'capture',
-    currency: 'USD',
+    intent: "capture",
+    currency: "USD",
   };
   const buttonStyles = {
-    layout: 'vertical',
-    shape: 'react',
+    layout: "vertical",
+    shape: "react",
   };
 
   const handleSunTotal = () =>
     cart.reduce((accu, currentValue) => accu + currentValue.price, 0);
   const handlePaymentSuccess = (data) => {
-    if (data.status === 'COMPLETED') {
+    if (data.status === "COMPLETED") {
       const newOrder = {
         buyer,
         product: cart,
         payment: data,
       };
       addNewOrder(newOrder);
-      navigate('/checkout/success');
+      navigate("/checkout/success");
     }
   };
   return (

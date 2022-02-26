@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import '@styles/components/Header.css';
-import { Link } from 'react-router-dom';
-import Appcontext from '@context/AppContext';
+import React, { useContext } from "react";
+import "@styles/components/Header.css";
+import { Link } from "react-router-dom";
+import Appcontext from "@context/AppContext";
 
 function Header() {
   const { state } = useContext(Appcontext);

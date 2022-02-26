@@ -8,7 +8,8 @@
     "start": "webpack serve --open --config webpack.config.js",
     "build": "webpack --mode production",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
-    "lint": "eslint src/ --fix ",
+    "lint": "eslint src/ --fix",
+    "testLint": "eslint --ext .jsx,.js src",
     "prepare": "husky install"
   },
   "keywords": [],

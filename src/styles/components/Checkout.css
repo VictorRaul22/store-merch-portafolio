@@ -5,6 +5,7 @@
   display: grid;
   padding: 0 0 4em 0;
 }
+
 .Checkout-item {
   display: flex;
   justify-content: space-between;

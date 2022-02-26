@@ -7,26 +7,17 @@
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended"
   ],
-  "plugins": [
-    "prettier",
-    "react-hooks"
-  ],
+  "plugins": ["prettier", "react-hooks"],
   "rules": {
     "react/jsx-filename-extension": [
-    1,
-    {
-      "extensions": [
-      ".js",
-      ".jsx"
-      ]
-    }
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
     ],
     "react/prop-types": 0,
     "no-underscore-dangle": 0,
-    "import/imports-first": [
-    "error",
-    "absolute-first"
-    ],
+    "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error"
   },
   "globals": {
@@ -44,9 +35,10 @@
   },
   "settings": {
     "import/resolver": {
-      "webpack":{
+      "webpack": {
         "config": "webpack.config.js"
       }
     }
-  }
+  },
+  "ignorePatterns": ["src/**/*.css"]
 }

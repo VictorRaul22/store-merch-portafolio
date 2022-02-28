@@ -1,8 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require('webpack');
-require('dotenv').config();
+// const webpack = require('webpack');
+// require('dotenv').config();
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -73,20 +73,12 @@ module.exports = {
       systemvars: true,
       defaults: false
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        CLIENT_ID_PP: JSON.stringify(process.env.CLIENT_ID_PP),
-        MAP_API_KEY: JSON.stringify(process.env.MAP_API_KEY),
-        MAP_JS_API_KEY: JSON.stringify(process.env.MAP_JS_API_KEY),
-      }
-    })
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     CLIENT_ID_PP: JSON.stringify(process.env.CLIENT_ID_PP),
+    //     MAP_API_KEY: JSON.stringify(process.env.MAP_API_KEY),
+    //     MAP_JS_API_KEY: JSON.stringify(process.env.MAP_JS_API_KEY),
+    //   }
+    // })
   ],
-  devServer: {
-    historyApiFallback: true,
-    static: {
-      directory: path.join(__dirname, "public"),
-    },
-    compress: true,
-    port: 3000,
-  },
 };

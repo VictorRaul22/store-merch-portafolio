@@ -27,7 +27,8 @@
     "FormData": true,
     "FileReader": true,
     "Blob": true,
-    "navigator": true
+    "navigator": true,
+    "fetch": true
   },
   "parser": "@babel/eslint-parser",
   "parserOptions": {

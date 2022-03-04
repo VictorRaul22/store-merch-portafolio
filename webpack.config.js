@@ -4,13 +4,44 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const webpack = require('webpack');
 // require('dotenv').config();
 const Dotenv = require('dotenv-webpack');
+const CssMinimizerPugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+// const CompressionPlugin = require("compression-webpack-plugin");
 
-module.exports = {
+const shouldAnalyze = process.argv.includes('--analyze')
+
+const plugins = [
+  new HtmlWebpackPlugin({
+    template: "./public/index.html",
+    filename: "./index.html",
+  }),
+  new MiniCssExtractPlugin({
+    filename: "css/[name].css",
+  }),
+  new Dotenv({
+    path: './.env',
+    safe: true,
+    systemvars: true,
+    defaults: false
+  })
+  // ,
+  // new CompressionPlugin({
+  //   filename: '[path].gz[query]',
+  //   algorithm: 'gzip',
+  //   test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/
+  // })
+]
+
+if (shouldAnalyze) {
+  const { BundleAnalyzerPlugin } = module.require('webpack-bundle-analyzer')
+  plugins.push(new BundleAnalyzerPlugin())
+}
+const config = {
   entry: "./src/index.js",
   mode: "production",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/bundle.js",
+    filename: "js/[name].bundle.js",
     publicPath: "/",
   },
   resolve: {
@@ -24,6 +55,7 @@ module.exports = {
       "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
+  devtool: "source-map",
   module: {
     rules: [
       // trabajar con babel
@@ -59,26 +91,13 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "./index.html",
-    }),
-    new MiniCssExtractPlugin({
-      filename: "css/[name].css",
-    }),
-    new Dotenv({
-      path: './.env',
-      safe: true,
-      systemvars: true,
-      defaults: false
-    }),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     CLIENT_ID_PP: JSON.stringify(process.env.CLIENT_ID_PP),
-    //     MAP_API_KEY: JSON.stringify(process.env.MAP_API_KEY),
-    //     MAP_JS_API_KEY: JSON.stringify(process.env.MAP_JS_API_KEY),
-    //   }
-    // })
-  ],
+  plugins,
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPugin(),
+      new TerserPlugin()
+    ]
+  }
 };
+module.exports = config

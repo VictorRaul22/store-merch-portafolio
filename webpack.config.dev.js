@@ -22,6 +22,7 @@ module.exports = {
       "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       // trabajar con babel

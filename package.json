@@ -10,7 +10,8 @@
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix",
     "testLint": "eslint --ext .jsx,.js src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyze": "webpack --config webpack.config.js --analyze"
   },
   "keywords": [],
   "author": "Victor Chirinos Jimenez <victor-raul-22@hotmail.com>",
@@ -20,6 +21,7 @@
     "dotenv": "^16.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-paypal-button-v2": "^2.6.3",
     "react-router-dom": "^6.2.1"
   },
@@ -30,7 +32,9 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
+    "compression-webpack-plugin": "^9.2.0",
     "css-loader": "^6.6.0",
+    "css-minimizer-webpack-plugin": "^3.4.1",
     "dotenv-webpack": "^7.1.0",
     "eslint": "^8.9.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -47,7 +51,9 @@
     "mini-css-extract-plugin": "^2.5.3",
     "prettier": "^2.5.1",
     "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.1",
     "webpack": "^5.69.1",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
   },

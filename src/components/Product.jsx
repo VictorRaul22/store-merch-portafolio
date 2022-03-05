@@ -5,6 +5,7 @@ const ImgCard = lazy(() =>
   import(/* webpackChunkName: "ImgCard" */ "@components/ImgCard")
 );
 function Product({ product, handleAddToCart }) {
+  // console.log(`http://localhost:1337${product.image.data[0].attributes.url}`);
   return (
     <div className="Products-item">
       <Suspense fallback={<LoadingImgCard />}>

@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 const CssMinimizerPugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const shouldAnalyze = process.argv.includes("--analyze");
 
@@ -27,14 +27,13 @@ const plugins = [
   new Dotenv(),
   new CopyPlugin({
     patterns: [
-      { from: 'public/manifest.json', to: '' },
-      { from: 'public/sw.js', to: '' },
-      { from: 'public/logo192.png', to: 'assets' },
-      { from: 'public/logo512.png', to: 'assets' },
-      { from: 'public/favicon.ico', to: 'assets' },
+      { from: "public/manifest.json", to: "" },
+      { from: "public/sw.js", to: "" },
+      { from: "public/logo192.png", to: "assets" },
+      { from: "public/logo512.png", to: "assets" },
+      { from: "public/favicon.ico", to: "assets" },
     ],
   }),
-
 ];
 
 if (shouldAnalyze) {
@@ -46,7 +45,7 @@ const config = {
   mode: "production",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: 'js/[name].[contenthash].js',
+    filename: "js/[name].[contenthash].js",
     publicPath: "/",
     clean: true,
   },

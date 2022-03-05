@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -75,11 +75,11 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'public/manifest.json', to: '' },
-        { from: 'public/sw.js', to: '' },
-        { from: 'public/logo192.png', to: 'assets' },
-        { from: 'public/logo512.png', to: 'assets' },
-        { from: 'public/favicon.ico', to: 'assets' },
+        { from: "public/manifest.json", to: "" },
+        { from: "public/sw.js", to: "" },
+        { from: "public/logo192.png", to: "assets" },
+        { from: "public/logo512.png", to: "assets" },
+        { from: "public/favicon.ico", to: "assets" },
       ],
     }),
   ],

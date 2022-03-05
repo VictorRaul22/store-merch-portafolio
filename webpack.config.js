@@ -24,7 +24,12 @@ const plugins = [
   //   systemvars: true,
   //   defaults: false,
   // }),
-  new Dotenv(),
+  new Dotenv({
+    path: "./.env",
+    safe: true,
+    systemvars: true,
+    defaults: false,
+  }),
   new CopyPlugin({
     patterns: [
       { from: "public/manifest.json", to: "" },

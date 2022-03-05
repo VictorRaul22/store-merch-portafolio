@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Conf Merch</title>
+    <link rel="manifest" href="./manifest.json" />
     <link rel="preconnect" href="https://placeimg.com" crossorigin />
     <link rel="dns-prefetch" href="https://placeimg.com" />
     <!--iconos del fontawesome-->
@@ -16,5 +17,29 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("sw.js")
+            .then(
+              function (registration) {
+                console.log(
+                  "ServiceWorker registration successful with scope: ",
+                  registration.scope
+                );
+              },
+              function (err) {
+                console.log("ServiceWorker registration failed: ", err);
+              }
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("service worker is not supported");
+      }
+    </script>
   </body>
 </html>

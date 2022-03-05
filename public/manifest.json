@@ -1,0 +1,25 @@
+{
+  "short_name": "Conf Store",
+  "name": "simple Store",
+  "icons": [
+    {
+      "src": "assets/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#222",
+  "theme_color": "#222",
+  "display": "standalone"
+}

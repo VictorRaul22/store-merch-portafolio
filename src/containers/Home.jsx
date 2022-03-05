@@ -7,6 +7,7 @@ function Home() {
     <>
       <Helmet>
         <title>Platzi conf Merch- Productos</title>
+        <meta name="description" content="Lista de productos" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@SiteUser" />
         <meta name="twitter:creator" content="@CreatorUser" />

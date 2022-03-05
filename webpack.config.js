@@ -96,8 +96,8 @@ const config = {
     minimize: true,
     minimizer: [new CssMinimizerPugin(), new TerserPlugin()],
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: "all",
+    },
   },
 };
 module.exports = config;

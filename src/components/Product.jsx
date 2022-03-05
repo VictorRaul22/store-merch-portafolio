@@ -1,7 +1,9 @@
 import React, { Suspense, lazy } from "react";
 import LoadingImgCard from "./LoadingImgCard";
 
-const ImgCard = lazy(() => import("@components/ImgCard"));
+const ImgCard = lazy(() =>
+  import(/* webpackChunkName: "ImgCard" */ "@components/ImgCard")
+);
 function Product({ product, handleAddToCart }) {
   return (
     <div className="Products-item">

@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, lazy, Suspense } from "react";
 import "@styles/components/Payment.css";
-import { PayPalButton } from "react-paypal-button-v2";
+// import { PayPalButton } from "react-paypal-button-v2";
 import AppContext from "@context/AppContext";
 import { useNavigate } from "react-router-dom";
 import pass from "../pass";
+
+const PayPalButton = lazy(() =>
+  import(/* webpackChunkName: "paypalBtn" */ "@components/PaypalButton")
+);
 
 function Payment() {
   const { state, addNewOrder } = useContext(AppContext);
@@ -44,18 +48,14 @@ function Payment() {
             </div>
           </div>
         ))}
-        <div className="Payment-button">
+        <Suspense fallback={<h2>Cargando...</h2>}>
           <PayPalButton
-            options={paypalOptions}
-            styles={buttonStyles}
-            amount={handleSunTotal()}
-            onSuccess={(data) => handlePaymentSuccess(data)}
-            // eslint-disable-next-line no-console
-            onError={(error) => console.log(error)}
-            // eslint-disable-next-line no-console
-            onCancel={(data) => console.log(data)}
+            paypalOptions={paypalOptions}
+            buttonStyles={buttonStyles}
+            handleSunTotal={handleSunTotal}
+            handlePaymentSuccess={handlePaymentSuccess}
           />
-        </div>
+        </Suspense>
       </div>
     </div>
   );

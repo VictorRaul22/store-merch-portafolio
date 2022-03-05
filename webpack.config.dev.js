@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/index.js",
@@ -22,7 +22,7 @@ module.exports = {
       "@hooks": path.resolve(__dirname, "src/hooks"),
     },
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   module: {
     rules: [
       // trabajar con babel
@@ -67,11 +67,11 @@ module.exports = {
       filename: "css/[name].css",
     }),
     new Dotenv({
-      path: './.env',
+      path: "./.env",
       safe: true,
       systemvars: true,
-      defaults: false
-    })
+      defaults: false,
+    }),
   ],
   devServer: {
     historyApiFallback: true,

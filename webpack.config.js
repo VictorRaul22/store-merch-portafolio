@@ -3,12 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const webpack = require('webpack');
 // require('dotenv').config();
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const CssMinimizerPugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 // const CompressionPlugin = require("compression-webpack-plugin");
 
-const shouldAnalyze = process.argv.includes('--analyze')
+const shouldAnalyze = process.argv.includes("--analyze");
 
 const plugins = [
   new HtmlWebpackPlugin({
@@ -19,22 +19,22 @@ const plugins = [
     filename: "css/[name].css",
   }),
   new Dotenv({
-    path: './.env',
+    path: "./.env",
     safe: true,
     systemvars: true,
-    defaults: false
-  })
+    defaults: false,
+  }),
   // ,
   // new CompressionPlugin({
   //   filename: '[path].gz[query]',
   //   algorithm: 'gzip',
   //   test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/
   // })
-]
+];
 
 if (shouldAnalyze) {
-  const { BundleAnalyzerPlugin } = module.require('webpack-bundle-analyzer')
-  plugins.push(new BundleAnalyzerPlugin())
+  const { BundleAnalyzerPlugin } = module.require("webpack-bundle-analyzer");
+  plugins.push(new BundleAnalyzerPlugin());
 }
 const config = {
   entry: "./src/index.js",
@@ -94,10 +94,10 @@ const config = {
   plugins,
   optimization: {
     minimize: true,
-    minimizer: [
-      new CssMinimizerPugin(),
-      new TerserPlugin()
-    ]
-  }
+    minimizer: [new CssMinimizerPugin(), new TerserPlugin()],
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
 };
-module.exports = config
+module.exports = config;

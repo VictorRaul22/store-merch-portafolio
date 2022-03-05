@@ -1,9 +1,13 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
+import LoadingImgCard from "./LoadingImgCard";
 
+const ImgCard = lazy(() => import("@components/ImgCard"));
 function Product({ product, handleAddToCart }) {
   return (
     <div className="Products-item">
-      <img src={product.image} alt={product.title} />
+      <Suspense fallback={<LoadingImgCard />}>
+        <ImgCard src={product.image} alt={product.title} />
+      </Suspense>
       <div className="Product-item-info">
         <h2>
           {product.title}
